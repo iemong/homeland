@@ -1,0 +1,54 @@
+.u-clearfix {
+	&:after {
+		content: " ";
+		display: block;
+		height: 0;
+		line-height: 0;
+		clear: both;
+	}
+}
+
+/*
+font-family セット
+参照: http://www.dtp-transit.jp/misc/web/post_1881.html
+*/
+.u-font-family {
+	&__gothic {
+		font-family: Verdana, "游ゴシック", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+		&--full {
+			font-family: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+		}
+	}
+	&__serif {
+		font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
+		&--full {
+			font-family: "Times New Roman", "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "メイリオ", Meiryo, serif;
+		}
+	}
+	&__tohaba {
+		font-family: Osaka-mono, "MS Gothic", monospace;
+		&--full {
+			font-family: "Osaka－等幅", Osaka-mono, "ＭＳ ゴシック", "MS Gothic", monospace;
+		}
+	}
+	&__maru {
+		font-family: "Hiragino Maru Gothic ProN", Meiryo, fantasy;
+		&--full {
+			font-family: "ヒラギノ丸ゴ ProN W4", "Hiragino Maru Gothic ProN", "メイリオ", Meiryo, fantasy;
+		}
+	}
+	&__android-full-set {
+		font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	}
+}
+
+.u-filter__hover {
+	&:hover {
+		opacity: 0.8;
+		filter: alpha(opacity=80);        /* ie lt 8 */
+		-ms-filter: "alpha(opacity=80)";  /* ie 8 */
+		-moz-opacity: 0.8;                 /* FF lt 1.5, Netscape */
+		-khtml-opacity: 0.8;              /* Safari 1.x */
+		zoom:1;
+	}
+}

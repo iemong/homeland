@@ -39,7 +39,7 @@ var gulp = require('gulp'),
 			phpTarget  : 'assets/**/*.php',
 			// css, Sass(scss)
 			scssSrc    : 'assets/scss/**.scss',
-            scssMain   : 'assets/scss/support.scss',
+            scssMain   : 'assets/scss/top.scss',
 			scssDest   : 'build/css',
 			scssTarget : 'assets/scss/**/*.scss',
 			// javascript

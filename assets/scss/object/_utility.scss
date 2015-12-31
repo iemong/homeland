@@ -108,4 +108,44 @@
 			border-bottom: none;
 		}
 	}
+	&.is-commingsoon {
+		color: #4f4f4f;
+		background-color: trasparent;
+		transition: none;
+		cursor: default;
+		position: relative;
+		&:hover {
+			background-color: transparent;
+			transition: none;
+		}
+		&::before,
+		&::after {
+			transition: none;
+		}
+		&::before {
+			border-top: 2px solid #4f4f4f;
+			border-left: 2px solid #4f4f4f;
+			transition: none;
+		}
+		&::after {
+			border-right: 2px solid #4f4f4f;
+			border-bottom: 2px solid #4f4f4f;
+			transition: none;
+		}
+		&:hover::before,
+		&:hover::after {
+			width: 100%;
+			height: 100%;
+			opacity: 1.0;
+			transition: none;
+		}
+		span {
+			display: block;
+			position: absolute;
+			margin: 0 auto;
+			bottom: -13px;
+			left: 0;
+			right: 0;
+		}
+	}
 }

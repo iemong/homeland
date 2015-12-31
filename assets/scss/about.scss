@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+@import "common";
+
+$headLineCol: #164a66;
+$lineCol: #164a66;
+.l-wrapper {
+    background-image: url(../images/bg_02.png);
+    background-position: center center;
+    background-repeat: repeat-y;
+    background-color: #111416;
+    background-size: auto;
+}
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    @at-root {
+        h1 {
+            font-size: 36px;
+            font-weight: 100;
+            line-height: 1.0;
+            color: $headLineCol;
+            margin: 50px 0 55px 120px;
+        }
+        .innerContent {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            @at-root {
+                .content_01__title, .content_02__title, .content_03__title {
+                    margin-bottom: 40px;
+                    line-height: 1.0;
+                    font-size: 28px;
+                    font-weight: 100;
+                    background-image: url(../images/headline_bg_01.png);
+                    background-repeat: repeat-x;
+                    background-position: center bottom;
+                    padding-bottom: 20px;
+                }
+                .content_01__title::before, .content_02__title::before, .content_03__title::before  {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 14px;
+                    background-image: url(../images/headline_bg_01.png);
+                    background-repeat: repeat-x;
+                    background-position: center top;
+                    margin-bottom: 10px;
+                }
+                .content_01__text, .content_02__text, .content_03__text {
+                    line-height: 2.0;
+                    font-size: 16px;
+                }
+                .content_01__image, .content_02__image, .content_03__image {
+                    margin-bottom: 30px;
+                }
+                .content_01 {
+                    &__text {
+                        margin-bottom: 100px;
+                    }
+                }
+                .content_02 {
+                    &__text {
+                        margin-bottom: 100px;
+                    }
+                }
+                .content_03 {
+                    &__text {
+                        margin-bottom: 40px;
+                    }
+                    &__image:last-of-type {
+                        margin-bottom: 165px;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

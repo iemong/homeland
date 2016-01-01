@@ -25,6 +25,9 @@
 	&__palatino {
 		font-family: Palatino, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "游明朝", YuMincho,  "メイリオ", Meiryo, serif;
 	}
+	&__optima {
+		font-family: Optima,Segoe, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "游明朝", YuMincho,  "メイリオ", Meiryo, serif;
+	}
 	&__tohaba {
 		font-family: Osaka-mono, "MS Gothic", monospace;
 		&--full {
@@ -109,11 +112,12 @@
 		}
 	}
 	&.is-commingsoon {
-		color: #4f4f4f;
+		color: #dcdcdc;
 		background-color: trasparent;
 		transition: none;
 		cursor: default;
 		position: relative;
+		overflow: visible;
 		&:hover {
 			background-color: transparent;
 			transition: none;
@@ -123,13 +127,13 @@
 			transition: none;
 		}
 		&::before {
-			border-top: 2px solid #4f4f4f;
-			border-left: 2px solid #4f4f4f;
+			border-top: 2px solid #dcdcdc;
+			border-left: 2px solid #dcdcdc;
 			transition: none;
 		}
 		&::after {
-			border-right: 2px solid #4f4f4f;
-			border-bottom: 2px solid #4f4f4f;
+			border-right: 2px solid #dcdcdc;
+			border-bottom: 2px solid #dcdcdc;
 			transition: none;
 		}
 		&:hover::before,
@@ -146,6 +150,8 @@
 			bottom: -13px;
 			left: 0;
 			right: 0;
+			opacity: 0.8;
+
 		}
 	}
 }

@@ -19,6 +19,7 @@ $textColor--current: #164a66;
 body {
     position: relative;
     color: $textColor;
+    -webkit-text-size-adjust: 100%;
 }
 #loader-bg {
   display: block;
@@ -59,27 +60,29 @@ header {
 nav {
     height: $headerHeight;
     text-align: center;
-    ul {
-        display: flex;
-        margin: 0 auto;
-        flex-direction: row;
-        justify-content: center;
+    &.pc_navi {
+        ul {
+            display: flex;
+            margin: 0 auto;
+            flex-direction: row;
+            justify-content: center;
 
-        li {
-            margin: 10px;
-            a {
-                display: block;
-                box-sizing: border-box;
-                width: 115px;
-                height: $headerHeight - 20px;
-                line-height: $headerHeight - 20px;
-                color: $textColor;
-                font-size: 14px;
-                &.current {
-                    color: $textColor--current;
+            li {
+                margin: 10px;
+                a {
+                    display: block;
+                    box-sizing: border-box;
+                    width: 115px;
+                    height: $headerHeight - 20px;
+                    line-height: $headerHeight - 20px;
+                    color: $textColor;
+                    font-size: 14px;
+                    &.current {
+                        color: $textColor--current;
+                    }
                 }
             }
-        }
+        }    
     }
 }
 main {

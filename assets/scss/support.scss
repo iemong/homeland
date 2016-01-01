@@ -97,7 +97,11 @@ main {
                                         float: right;
                                         width: 200px;
                                         img {
+                                            display: block;
                                             width: 100%;
+                                            &:nth-of-type(2) {
+                                                margin-top: 20px;
+                                            }
                                         }
                                     }
                                 }
@@ -109,6 +113,8 @@ main {
             .content_03 {
                 @at-root {
                     &__list {
+                        float: left;
+                        width: 300px;
                         margin-bottom: 20px;
                         @at-root {
                             &__child {
@@ -141,8 +147,14 @@ main {
                 .address {
                     margin-bottom: 20px;
                 }
-                .explain {
+                .explain, .organization {
                     font-size: 14px;
+                }
+                .explain {
+                    margin-bottom: 10px;
+                }
+                .organization {
+                    text-align: right;
                 }
             }
         }

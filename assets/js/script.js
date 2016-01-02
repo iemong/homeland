@@ -42,17 +42,17 @@ $(function(){
 
     /* news */
     var accordion      = $('.js-accordion');
-    var accordionInner = accordion.find('p');
+    var accordionInner = accordion.children('p');
     accordionInner.css({"cursor": "pointer"});
     accordionInner.on('click', function(){
         var parent = $(this).parent();
         parent.toggleClass('on');
         if(parent.hasClass('on')){
             parent.next().slideDown(500, function(){
-                $(this).animate({opacity:1});
+                $(this).stop().animate({opacity:1});
             });
         } else {
-            parent.next().animate({opacity:0},function(){
+            parent.next().stop().animate({opacity:0},function(){
                 $(this).slideUp(500);
             });
         }

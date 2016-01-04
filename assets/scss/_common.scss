@@ -15,6 +15,8 @@ $headerHeight: 70px;
 $footerHeight: 30px;
 $textColor: #dcdcdc;
 $textColor--current: #164a66;
+$small:  "screen and (max-width:960px)";
+$large:  "screen and (min-width:961px)";
 
 body {
     position: relative;
@@ -51,43 +53,87 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center center;
+    z-index: 2;
 }
 header {
     display: none;
     height: $headerHeight;
     background-color: transparent;
+    position: relative;
+    z-index: 3;
 }
-nav {
-    height: $headerHeight;
-    text-align: center;
-    &.pc_navi {
-        ul {
-            display: flex;
-            margin: 0 auto;
-            flex-direction: row;
-            justify-content: center;
+@media #{$small} {
+    nav {
+        height: $headerHeight;
+        text-align: center;
+        &.pc_navi {
+            display: none;
+            ul {
+                display: flex;
+                margin: 0 auto;
+                flex-direction: row;
+                justify-content: center;
 
-            li {
-                margin: 10px;
-                a {
-                    display: block;
-                    box-sizing: border-box;
-                    width: 115px;
-                    height: $headerHeight - 20px;
-                    line-height: $headerHeight - 20px;
-                    color: $textColor;
-                    font-size: 14px;
-                    &.current {
-                        color: $textColor--current;
+                li {
+                    margin: 10px;
+                    a {
+                        display: block;
+                        box-sizing: border-box;
+                        width: 115px;
+                        height: $headerHeight - 20px;
+                        line-height: $headerHeight - 20px;
+                        color: $textColor;
+                        font-size: 14px;
+                        &.current {
+                            color: $textColor--current;
+                        }
                     }
                 }
             }
-        }    
+        }
+        &.sp_navi {
+            display: block;
+        }
     }
 }
+@media #{$large} {
+    nav {
+        height: $headerHeight;
+        text-align: center;
+        &.pc_navi {
+            ul {
+                display: flex;
+                margin: 0 auto;
+                flex-direction: row;
+                justify-content: center;
+
+                li {
+                    margin: 10px;
+                    a {
+                        display: block;
+                        box-sizing: border-box;
+                        width: 115px;
+                        height: $headerHeight - 20px;
+                        line-height: $headerHeight - 20px;
+                        color: $textColor;
+                        font-size: 14px;
+                        &.current {
+                            color: $textColor--current;
+                        }
+                    }
+                }
+            }
+        }
+        &.sp_navi {
+            display: none;
+        }
+    }
+}
+
 main {
     height: 100%;
     position: relative;
+    z-index: 3;
 }
 aside {
     position: fixed;
@@ -107,6 +153,7 @@ footer {
     bottom: 0;
     background-color: rgba(19, 19, 19, 0.95);
     text-align: center;
+    z-index: 3;
     .copyright {
         color: #dcdcdc;
         line-height: $footerHeight;

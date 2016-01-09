@@ -1,13 +1,14 @@
 $(function(){
     /* variable */
-    var header      = $('header');
-    var footer      = $('footer');
-    var shareButton = $('.btn--share');
-    var sidebar     = $('aside');
-    var textCol     = "#dcdcdc";
-    var textColNow  = "#164a66";
-    var h = $(window).height();
-
+    var header       = $('header');
+    var footer       = $('footer');
+    var shareButton  = $('.btn--share');
+    var sidebar      = $('aside');
+    var textCol      = "#dcdcdc";
+    var textColNow   = "#164a66";
+    var h            = $(window).height();
+    var naviButtonSP = $('.navi__button__inner');
+    var naviSP       = $('.navi__content');
     $('#wrap').css('display','none');
     $('#loader-bg ,#loader').height(h).css('display','block');
     /* load */
@@ -19,7 +20,24 @@ $(function(){
             footer.slideToggle(800,"easeOutExpo");
         });
     });
-
+    /* navigation */
+    naviButtonSP.on('click', function(){
+        $(this).toggleClass('on');
+        if($(this).hasClass('on')){
+            $(this).css({'background-position':'0 50px'});
+            $(this).parent().css({'background-color':textColNow});
+            naviSP.stop().animate({'top':'10%'}, function(){
+                $(this).find('a').removeClass('disabled');
+            }).find('a').addClass('disabled');
+        } else {
+            $(this).css({'background-position':'0 0'});
+            $(this).parent().css({'background-color':'transparent'});
+            naviSP.stop().animate({'top':'-100%'}).find('a').addClass('disabled');
+        }
+    });
+    naviSP.on('click', "a.disabled", function(){
+        return false;
+    });
     /* social */
     $("#share").jsSocials({
             showLabel: false,

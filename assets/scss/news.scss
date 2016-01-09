@@ -5,6 +5,9 @@
 $headLineCol: #164a66;
 $dateCol: #165d84;
 $lineCol: #164a66;
+$small:  "screen and (max-width:960px)";
+$large:  "screen and (min-width:961px)";
+
 .l-wrapper {
     background-image: url(../images/bg_01.png);
     background-position: center center;
@@ -12,15 +15,32 @@ $lineCol: #164a66;
     background-color: #111416;
 
 }
+@media #{$small} {
+    main {
+        width: 100%;
+    }
+
+}
 main {
     max-width: 1280px;
     margin: 0 auto;
+
     h1 {
         font-size: 36px;
         font-weight: 100;
         line-height: 1.0;
         color: $headLineCol;
-        margin: 50px 0 50px 120px;
+    }
+    @media #{$large} {
+        h1 {
+            margin: 50px 0 50px 120px;
+        }
+    }
+    @media #{$small} {
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
     }
     .innerContent {
         width: 800px;
@@ -106,6 +126,26 @@ main {
                 &__text {
                     box-sizing: border-box;
                     padding: 20px;
+                }
+            }
+        }
+    }
+    @media #{$small} {
+        .innerContent {
+            width: auto;
+            margin: 0 5%;
+            .articleList {
+                &__title{
+                    font-size: 16px;
+                }
+                &__content {
+                    font-size: 13px;
+                    &__name {
+                        font-size: 14px;
+                    }
+                    &__text {
+                        padding: 5px 20px 20px 20px;
+                    }
                 }
             }
         }

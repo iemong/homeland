@@ -5,10 +5,24 @@
 $headLineCol: #164a66;
 $dateCol: #165d84;
 $lineCol: #164a66;
+$small:  "screen and (max-width:960px)";
+$large:  "screen and (min-width:961px)";
+
 .l-wrapper {
     background-image: url(../images/bg_01.png);
     background-position: center center;
     background-color: #111416;
+}
+@media #{$small} {
+    main {
+        width: 100%;
+    }
+    .SP {
+        display: block;
+    }
+    .SPhide {
+        display: none;
+    }
 }
 main {
     max-width: 1280px;
@@ -18,7 +32,17 @@ main {
         font-weight: 100;
         line-height: 1.0;
         color: $headLineCol;
-        margin: 50px 0 50px 120px;
+    }
+    @media #{$large} {
+        h1 {
+            margin: 50px 0 50px 120px;
+        }
+    }
+    @media #{$small} {
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
     }
     .innerContent {
         width: 800px;
@@ -28,6 +52,11 @@ main {
             margin-bottom: 80px;
             padding: 30px 40px;
             background-color: rgba(28, 28, 28, 0.8);
+        }
+        @media #{$small} {
+            & > section {
+                width: auto;
+            }
         }
         @at-root {
                 .content__tit {
@@ -52,6 +81,28 @@ main {
                         &--attention {
                             font-size: 14px;
                             margin-bottom: 20px;
+                        }
+                    }
+                }
+                @media #{$small} {
+                    .content__tit {
+                        font-size: 16px;
+                    }
+                    .content__tit::after {
+                        margin: 10px 0 20px;
+                    }
+                    .content__text {
+                        line-height: 1.8;
+                        font-size: 14px;
+                        margin-bottom: 30px;
+                        @at-root {
+                            &--attention {
+                                font-size: 12px;
+                                margin-bottom: 20px;
+                                text-indent: -1em;
+                                padding-left: 1em;
+                                white-space: nowrap;
+                            }
                         }
                     }
                 }
@@ -93,6 +144,26 @@ main {
                                             }
                                         }
                                     }
+                                    @media #{$small} {
+                                        &--text {
+                                            float: none;
+                                            width: auto;
+                                            .price {
+                                                margin-bottom: 10px;
+                                            }
+                                            .present {
+                                                @at-root {
+                                                    .present__child {
+                                                        font-size: 14px;
+                                                        &::before {
+                                                            font-size: 16px;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                    }
                                     &--image {
                                         float: right;
                                         width: 200px;
@@ -104,8 +175,27 @@ main {
                                             }
                                         }
                                     }
+                                    @media #{$small} {
+                                        &--image {
+                                            float: none;
+                                            width: 100%;
+                                            margin: 30px auto 0;
+                                            img {
+                                                display: block;
+                                                width: 100%;
+                                                &:nth-of-type(2) {
+                                                    margin-top: 20px;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
+                        }
+                    }
+                    @media #{$small} {
+                        &__list {
+                            padding-bottom: 20px;
                         }
                     }
                 }
@@ -126,15 +216,26 @@ main {
                                             margin-top: 20px;
                                         }
                                     }
+                                    @media #{$small} {
+                                        &--name {
+                                            font-size: 14px;
+                                        }
+                                    }
                                     &--price {
                                         float: right;
                                         width: 100px;
+                                        font-size: 14px;
                                         &::before {
                                             content: ":";
                                             margin-right: 0.5em;
                                         }
                                         &:last-of-type {
                                             margin-top: 20px;
+                                        }
+                                    }
+                                    @media #{$small} {
+                                        &--price {
+                                            font-size: 14px;
                                         }
                                     }
                                 }
@@ -157,6 +258,12 @@ main {
                     text-align: right;
                 }
             }
+        }
+    }
+    @media #{$small} {
+        .innerContent {
+            width: auto;
+            margin: 0 5%;
         }
     }
 }

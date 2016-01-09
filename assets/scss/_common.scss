@@ -17,14 +17,16 @@ $textColor: #dcdcdc;
 $textColor--current: #164a66;
 $small:  "screen and (max-width:960px)";
 $large:  "screen and (min-width:961px)";
-
+$navi_bg_col_sp : #fff;
+$navi_txt_col_sp : #ccc;
+$lineCol : #061e29;
 body {
     position: relative;
     color: $textColor;
     -webkit-text-size-adjust: 100%;
 }
 #loader-bg {
-  display: block;
+  display: none;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -46,53 +48,140 @@ body {
   color: #fff;
   z-index: 2;
 }
-
 .l-wrapper {
+    display: none;
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
     background-size: cover;
     background-position: center center;
-    z-index: 2;
+    overflow: scroll;
 }
 header {
     display: none;
     height: $headerHeight;
     background-color: transparent;
     position: relative;
-    z-index: 3;
+    z-index: 4;
 }
+main {
+    position: relative;
+}
+aside {
+    position: fixed;
+    top: 0;
+    right: -55px;
+    width: 55px;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(19, 19, 19, 0.95);
+}
+footer {
+    display: none;
+    position: fixed;
+    height: $footerHeight;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(19, 19, 19, 0.95);
+    text-align: center;
+    z-index: 3;
+    .copyright {
+        color: #dcdcdc;
+        line-height: $footerHeight;
+    }
+}
+
 @media #{$small} {
+    header {
+        display: none;
+        height: 10%;
+        background-color: transparent;
+        position: relative;
+        z-index: 4;
+    }
     nav {
-        height: $headerHeight;
+        height: 100%;
         text-align: center;
         &.pc_navi {
             display: none;
-            ul {
-                display: flex;
-                margin: 0 auto;
-                flex-direction: row;
-                justify-content: center;
-
-                li {
-                    margin: 10px;
-                    a {
-                        display: block;
-                        box-sizing: border-box;
-                        width: 115px;
-                        height: $headerHeight - 20px;
-                        line-height: $headerHeight - 20px;
-                        color: $textColor;
-                        font-size: 14px;
-                        &.current {
-                            color: $textColor--current;
-                        }
-                    }
-                }
-            }
         }
         &.sp_navi {
             display: block;
+            .navi__button {
+                height: 100%;
+                position: relative;
+                z-index: 4;
+                &__inner {
+                    position: absolute;
+                    width: 50px;
+                    height: 50px;
+                    margin: auto 0;
+                    top: 0;
+                    bottom: 0;
+                    right: 2%;
+                    cursor: pointer;
+                    background-image: url(../images/sp_navi_button.png);
+                    background-position: 0 0;
+                }
+            }
+            .navi__content {
+                display: block;
+                position: fixed;
+                width: 100%;
+                height: 90%;
+                top: -100%;
+                z-index: 3;
+                & > li {
+                    display: table;
+                    width: 100%;
+                    $allHeight : 100%;
+                    $contentHeight : $allHeight/7;
+                    height: $contentHeight;
+                    background-color:$textColor--current;
+                    border-bottom: 1px solid $lineCol;
+                    &:first-of-type {
+                        border-top: 1px solid $lineCol;
+                    }
+                    &:last-of-type {
+                        border-bottom: none;
+                        position: relative;
+                    }
+                    a {
+                        display: table-cell;
+                        font-size: 26px;
+                        vertical-align: middle;
+                        color: $textColor;
+                        &.commingsoon {
+                            color: #222;
+                        }
+                    }
+                }
+                .shareList {
+                    position: absolute;
+                    display: table;
+                    table-layout: fixed;
+                    padding: 0 10%;
+                    width: 100%;
+                    margin: auto;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    li {
+                        display: table-cell;
+                        width: 25%;
+                        text-align: center;
+                        vertical-align: middle;
+                        a {
+                            display: block;
+                        }
+                    }
+
+                }
+            }
+
         }
     }
 }
@@ -127,35 +216,5 @@ header {
         &.sp_navi {
             display: none;
         }
-    }
-}
-
-main {
-    height: 100%;
-    position: relative;
-    z-index: 3;
-}
-aside {
-    position: fixed;
-    top: 0;
-    right: -55px;
-    width: 55px;
-    height: 100%;
-    text-align: center;
-    background-color: rgba(19, 19, 19, 0.95);
-}
-footer {
-    display: none;
-    position: fixed;
-    height: $footerHeight;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(19, 19, 19, 0.95);
-    text-align: center;
-    z-index: 3;
-    .copyright {
-        color: #dcdcdc;
-        line-height: $footerHeight;
     }
 }

@@ -29,10 +29,14 @@ $(function(){
             naviSP.stop().animate({'top':'10%'}, function(){
                 $(this).find('a').removeClass('disabled');
             }).find('a').addClass('disabled');
+            $(window).on('touchmove.noScroll', function(e) {
+                e.preventDefault();
+            });
         } else {
             $(this).css({'background-position':'0 0'});
             $(this).parent().css({'background-color':'transparent'});
             naviSP.stop().animate({'top':'-100%'}).find('a').addClass('disabled');
+            $(window).off('.noScroll');
         }
     });
     naviSP.on('click', "a.disabled", function(){

@@ -37,11 +37,17 @@ main {
         h1 {
             margin: 50px 0 50px 120px;
         }
+        .SP {
+            display: none;
+        }
     }
     @media #{$small} {
         h1 {
             text-align: center;
             margin-bottom: 40px;
+        }
+        .SP {
+            display: block;
         }
     }
     .innerContent {
@@ -56,6 +62,7 @@ main {
         @media #{$small} {
             & > section {
                 width: auto;
+                padding: 30px 20px;
             }
         }
         @at-root {
@@ -81,6 +88,8 @@ main {
                         &--attention {
                             font-size: 14px;
                             margin-bottom: 20px;
+                            text-indent: -1.25em;
+                            padding-left: 1.25em;
                         }
                     }
                 }
@@ -92,16 +101,12 @@ main {
                         margin: 10px 0 20px;
                     }
                     .content__text {
-                        line-height: 1.8;
                         font-size: 14px;
-                        margin-bottom: 30px;
                         @at-root {
                             &--attention {
-                                font-size: 12px;
-                                margin-bottom: 20px;
-                                text-indent: -1em;
-                                padding-left: 1em;
-                                white-space: nowrap;
+                                font-size: 13px;
+                                text-indent: -1.25em;
+                                padding-left: 1.25em;
                             }
                         }
                     }
@@ -250,6 +255,11 @@ main {
                 }
                 .explain, .organization {
                     font-size: 14px;
+                }
+                @media #{$small} {
+                    .explain, .organization {
+                        font-size: 13px;
+                    }
                 }
                 .explain {
                     margin-bottom: 10px;

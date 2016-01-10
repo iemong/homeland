@@ -35,11 +35,17 @@ main {
         h1 {
             margin: 50px 0 50px 120px;
         }
+        .SP {
+            display: none;
+        }
     }
     @media #{$small} {
         h1 {
             text-align: center;
             margin-bottom: 40px;
+        }
+        .SP {
+            display: block;
         }
     }
     .innerContent {
@@ -145,6 +151,7 @@ main {
                     }
                     &__text {
                         padding: 5px 20px 20px 20px;
+                        line-height: 1.8;
                     }
                 }
             }

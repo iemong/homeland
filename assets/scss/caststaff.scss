@@ -1,0 +1,281 @@
+@charset "utf-8";
+
+@import "common";
+
+$headLineCol: #164a66;
+$lineCol: #164a66;
+$xsmall:  "screen and (max-width:640px)";
+$small:  "screen and (min-width:641px) and (max-width:960px)";
+$large:  "screen and (min-width:961px)";
+
+.l-wrapper {
+    background-image: url(../images/bg_01.png);
+    background-position: center center;
+    background-repeat: repeat-y;
+    background-color: #111416;
+
+}
+@media #{$small} {
+    main {
+        width: 100%;
+    }
+}
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    @at-root {
+        h1 {
+            font-size: 36px;
+            font-weight: 100;
+            line-height: 1.0;
+            color: $headLineCol;
+        }
+        @media #{$large} {
+            h1 {
+                margin: 50px 0 50px 120px;
+            }
+        }
+        @media #{$small} {
+            h1 {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+        }
+        .innerContent {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cast {
+            .cast__title {
+                font-size: 24px;
+                font-weight: normal;
+                text-align: left;
+                line-height: 1.0;
+            }
+            .cast__memberWrapper {
+                width: 85%;
+                margin: 0 auto;
+            }
+            .cast__memberList {
+                margin: 64px auto 93px;
+                .cast__memberList__child {
+                    float: left;
+                    cursor: pointer;
+                    width: 16.6666667%;
+                }
+                &::after {
+                    content: "";
+                    height: 38px;
+                    background-color: #164a66;
+                }
+            }
+        }
+        .staff {
+            .staff__title {
+                font-size: 24px;
+                font-weight: normal;
+                text-align: left;
+                line-height: 1.0;
+                margin-bottom: 17px;
+            }
+            .staff__kantoku {
+                margin-bottom: 53px;
+                display: inline-block;
+                cursor: pointer;
+                dt {
+                    margin-bottom: 10px;
+                    border-bottom: 2px solid #164a66;
+                    padding: 0 10px;
+                }
+                dd {
+
+                }
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            .staff__memberList {
+                margin-bottom: 53px;
+                dl {
+                    float: left;
+                    width: 33%;
+                    margin-bottom: 53px;
+                    dt {
+                        border-bottom: 2px solid #164a66;
+                        margin: 0 20% 10px;
+                    }
+                }
+            }
+
+        }
+        .SP {
+            display: none;
+        }
+        .modal {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 5;
+            .modal__BG {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(38, 38, 37, 0.8);
+                z-index: 6;
+            }
+            .modal__inner {
+                position: absolute;
+                margin: auto;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                width: 80%;
+                height: 530px;
+                max-width: 1000px;
+                background-color: #131313;
+                z-index: 7;
+                display: none;
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 25px;
+                    background-image: url(../images/caststaff_bg_modal_01.png);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    background-position: left bottom;
+                }
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 25px;
+                    background-image: url(../images/caststaff_bg_modal_02.png);
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                    background-position: left top;
+                }
+                .imageBox {
+                    float: left;
+                    width: 40%;
+                    height: 480px;
+                    padding: 30px 20px 30px 50px;
+                    overflow: hidden;
+                    background-color: #131313;
+                    text-align: right;
+                    img {
+                        width: 100%;
+                        max-width: 300px;
+                    }
+                }
+                .textBox {
+                    float: left;
+                    width: 60%;
+                    box-sizing: border-box;
+                    padding: 88px 4% 0;
+                    .textBox__tit {
+                        text-align: center;
+                        font-size: 28px;
+                        margin-bottom: 30px;
+                        line-height: 1.0;
+                        .slash {
+                            font-size: 26px;
+                            margin: 0 7px;
+                        }
+                        small {
+                            font-size: 16px;
+                        }
+                    }
+                    a {
+                        color: #164A66;
+                    }
+                }
+                .modal__close {
+                    img {
+                        position: absolute;
+                        right: 4%;
+                        bottom: 50px;
+                        cursor: pointer;
+                        display: block;
+                    }
+                }
+            }
+            .modal__inner--staff {
+                @extend .modal__inner;
+                .textBox {
+                    float: none;
+                    margin: 0 auto 5%;
+                    padding: 45px 4% 0;
+                    width: 80%;
+                }
+            }
+        }
+        @media #{$xsmall} {
+            .innerContent {
+                width: auto;
+                margin: 30px 5% 0;
+            }
+            .SP {
+                display: block;
+            }
+            .SPhide {
+                display: none;
+            }
+            .staff {
+                font-size: 11px;
+                .staff__memberList {
+                    dl {
+                        dt {
+                            margin: 0 10% 10px;
+                        }
+                    }
+                }
+            }
+            .modal {
+                .modal__inner {
+                    width: 100%;
+                    height: 100%;
+                    .imageBox {
+                        float: none !important;
+                        padding: 20px 0 0 0;
+                        height: 200px;
+                        margin: 0 auto;
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                    .textBox {
+                        float: none !important;
+                        padding: 0;
+                        width: 80%;
+                        margin: 0 auto;
+                        .textBox__tit {
+                            font-size: 14px;
+                            margin: 10px 0;
+                            .slash {
+                                font-size: 13px;
+                                margin: 0 7px;
+                            }
+                            small {
+                                font-size: 10px;
+                            }
+                        }
+                        .textBox__text {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

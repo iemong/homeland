@@ -78,7 +78,68 @@ $(function(){
                 $(this).slideUp(500);
             });
         }
+    });
 
-        //articleContent.show();
+    /* caststaff */
+    var modalContentHeight,modalImageHeight,modalTextHeight;
+    var modal      = $('.modal');
+    var modalInner = $('.modal__inner');
+    var modalBG    = $('.modal__BG');
+    var modalClose = $('.modal__close');
+    var kantoku    = $('.staff__kantoku');
+    var modalStaff = $('.modal__inner--staff');
+
+    $('.cast__memberList__child').hover(
+        function(){
+            $(this).find('img').attr('src', $(this).find('img').attr('src').replace('_off', '_on'));
+        },
+        function(){
+            $(this).find('img').attr('src', $(this).find('img').attr('src').replace('_on', '_off'));
+        }
+    ).on('click', function(){
+        var imageSrc = $(this).attr('data-src');
+        var title    = $(this).attr('data-tit');
+        var content  = $(this).attr('data-content');
+        modalImageHeight = $('.modal .imageBox').outerHeight();
+        modalTextHeight  = $('.modal .textBox').outerHeight();
+        if(modalImageHeight > modalTextHeight) {
+            modalContentHeight = modalImageHeight;
+        } else {
+            modalContentHeight = modalTextHeight;
+        }
+        modal.fadeIn();
+        modalInner.fadeIn();
+        //modalInner.css({'height': modalContentHeight + 50});
+        modalInner.find('.imageBox img').attr('src', imageSrc);
+        modalInner.find('.textBox__tit').html(title);
+        modalInner.find('.textBox__text').html(content);
+    });
+
+    kantoku.on('click', function(){
+        var title    = $(this).attr('data-tit');
+        var content  = $(this).attr('data-content');
+        var width = $(window).width();
+        modalImageHeight = $('.modal .imageBox').outerHeight();
+        modalTextHeight = $('.modal .textBox').outerHeight();
+        if(modalImageHeight > modalTextHeight) {
+            modalContentHeight = modalImageHeight;
+        } else {
+            modalContentHeight = modalTextHeight;
+        }
+        modal.fadeIn();
+        modalStaff.fadeIn();
+        modalStaff.css({'height': 350});
+        modalStaff.find('.textBox__tit').html(title);
+        modalStaff.find('.textBox__text').html(content);
+    });
+    modalBG.on('click', function(){
+        modal.fadeOut();
+        modalInner.fadeOut();
+        modalStaff.fadeOut();
+    });
+    modalClose.on('click', function(){
+        modal.fadeOut();
+        modalInner.fadeOut();
+        modalStaff.fadeOut();
     });
 });

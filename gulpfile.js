@@ -39,11 +39,11 @@ var gulp = require('gulp'),
 			phpTarget  : 'assets/**/*.php',
 			// css, Sass(scss)
 			scssSrc    : 'assets/scss/**.scss',
-            scssMain   : 'assets/scss/support.scss',
+            scssMain   : ['assets/scss/about.scss', 'assets/scss/news.scss','assets/scss/support.scss','assets/scss/top.scss','assets/scss/caststaff.scss','assets/scss/video.scss'],
 			scssDest   : 'build/css',
 			scssTarget : 'assets/scss/**/*.scss',
 			// javascript
-			jsSrc      : 'assets/js/script.js',
+			jsSrc      : 'assets/js/video.js',
 			jsDest     : 'build/js',
 			jsTarget   : 'assets/js/**/*.js',
 			// images

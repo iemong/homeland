@@ -24,6 +24,7 @@ body {
     position: relative;
     color: $textColor;
     -webkit-text-size-adjust: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 #loader-bg {
   display: none;
@@ -76,6 +77,7 @@ aside {
     height: 100%;
     text-align: center;
     background-color: rgba(19, 19, 19, 0.95);
+    z-index: 5;
 }
 footer {
     display: none;

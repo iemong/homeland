@@ -10,54 +10,77 @@ $(function(){
         var videoBoxChildNum   = videoBoxChild.length;
         var videoBoxChildImage = videoBoxChild.find("img");
         var videoBoxChildText  = videoBoxChild.find(".videoBox__child__textBox");
+        var videoLink = videoBoxChild.find('a');
         var width              = videoBoxChildImage.width();
         var height1            = videoBoxChildImage.height();
         var height2            = videoBoxChildText.innerHeight();
-
-        //高さ設定
-        videoBox.css({'height':height1 + height2,'width':width});
-        videoBoxChild.css({'height':height1 + height2,'width':width});
-        // 横並び
-        videoBoxChild.each(function(i){
-            $(this).css('left', $(this).width() * i);
-        });
+        var num = counter%5;
+        
         // コントローラ色
         videoCtr.find('.videoCtr__numList ul li span').eq(counter).css('background-color','white');
+        videoBoxChild.removeClass('current').eq(num).addClass('current');
         //ボタンアクション
         var leftBtn  = $(".videoCtr__button.l-left");
         var rightBtn = $(".videoCtr__button.l-right");
-        leftBtn.on('click', function(){
-            counter--;
-            videoCtr.find('.videoCtr__numList ul li span').css('background-color','#0a2d3e').eq(counter%5).css('background-color','white');
-            videoBoxChild.each(function(i){
-                $(this).stop().animate({'left': $(this).width() * (i-counter%5)});
-            });
-        });
-        rightBtn.on('click', function(){
-            counter++;
-            videoCtr.find('.videoCtr__numList ul li span').css('background-color','#0a2d3e').eq(counter%5).css('background-color','white');
-            videoBoxChild.each(function(i){
-                $(this).stop().animate({'left': $(this).width() * (i-counter%5)});
-            });
-        });
+        
 
         // メディアクエリー的なやつ
         if ($('.sp_navi').css('display') === 'none') {
+            // 横並び
+            videoBoxChild.each(function(i){
+                $(this).css('left', 290 + 400 * i);
+            });
+            //高さ設定
+            videoBox.css({'height':341,'width':'100%'});
+            videoBoxChild.css({'height':341,'width':width});
             //モーダル処理ON
-            var videoLink = videoBoxChild.find('a');
+            modalFunc();
+            //矢印
+            buttonEffect(leftBtn, -1, 290);
+            buttonEffect(rightBtn, 1, 290);
+        } else {
+            // 横並び
+            videoBoxChild.each(function(i){
+                $(this).css('left',width * i);
+            });
+            //高さ設定
+            videoBox.css({'height':height1 + height2,'width':width});
+            videoBoxChild.css({'height':height1 + height2,'width':width});
+            //モーダル処理OFF
+            videoLink.off();
+            //矢印
+            buttonEffect(leftBtn, -1, 0);
+            buttonEffect(rightBtn, 1, 0);
+        }
+        function buttonEffect(button, addVal, calibrateVal){
+            button.off().on('click', function(){
+                counter += addVal;
+                num = counter%5;
+                videoBoxChild.removeClass('current').eq(num).addClass('current');
+                if(num > 5) {
+                    num-=5;
+                }else if(num < 0) {
+                    num+=5;
+                }
+                videoCtr.find('.videoCtr__numList ul li span').css('background-color','#0a2d3e').eq(num).css('background-color','white');
+                videoBoxChild.each(function(i){
+                    $(this).stop().animate({'left': calibrateVal + $(this).width() * (i-num)});
+                });
+                console.log(num);
+            });
+        }
+        function modalFunc(){
             var modal = $('.videoModal');
             videoLink.on('click', function(e){
+                $(this).parent()
                 modal.fadeIn();
                 var youtubeLink = $(this).attr('data-movie');
-                console.log(youtubeLink);
                 modal.find('.videoModal__content').html('<iframe  src="'+ youtubeLink + '" frameborder="0" allowfullscreen></iframe>');
                 e.preventDefault();
             });
             modal.find('.videoModal__bg').on('click', function(){
                 modal.fadeOut();
             });
-        } else {
-            //モーダル処理OFF
         }
     });
 });

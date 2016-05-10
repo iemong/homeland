@@ -72,7 +72,6 @@ $(function(){
         function modalFunc(){
             var modal = $('.videoModal');
             videoLink.on('click', function(e){
-                $(this).parent()
                 modal.fadeIn();
                 var youtubeLink = $(this).attr('data-movie');
                 modal.find('.videoModal__content').html('<iframe  src="'+ youtubeLink + '" frameborder="0" allowfullscreen></iframe>');
